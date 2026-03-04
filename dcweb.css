@@ -1,0 +1,32 @@
+   
+      body {
+            margin: 0; overflow: hidden;
+            color: pink;
+            background: linear-gradient(135deg,#ffd166,#ff9f1c);
+          }
+      .books{
+            border: 2px solid ;
+            border-radius: 25px;
+            background-color: lavender;
+            margin-top: 30px;
+            margin-left: 35px;
+            margin-right: 35px;
+            padding: 20px;
+           }
+     footer{
+            text-align: center;
+            margin-top: 30px;
+          }
+     #white{
+            text-align: center;
+            background-color: rgb(255, 255, 255);
+            font-size: xx-large;
+            font-weight: 700;
+          }
+    .details{
+             background-color:white ;
+             color: black;
+           }
+    #contact{
+             border: 50px;
+           }

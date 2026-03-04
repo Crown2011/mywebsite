@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="10000signin.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>$10000 Movie — Login</title>
+</head>
+<body>
+    <main class="card" role="main" aria-labelledby="login-heading">
+        <div class="brand">
+            <div class="logo" aria-hidden="true">
+                <!-- stylized film ticket / dollar -->
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect x="2" y="10" width="44" height="28" rx="6" fill="#fff" opacity="0.06"/>
+                    <path d="M10 18h28" stroke="#fff" stroke-opacity="0.14" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M10 30h28" stroke="#fff" stroke-opacity="0.14" stroke-width="2" stroke-linecap="round"/>
+                    <text x="24" y="28" text-anchor="middle" fill="#0b1020" font-weight="700" font-size="10">$</text>
+                </svg>
+            </div>
+            <div>
+                <div class="site-title">DOE Studios</div>
+                <div class="site-sub">Exclusive screenings & premium access</div>
+            </div>
+        </div>
+
+        <h1 id="login-heading">Sign in to your account</h1>
+        <p class="lead">Enter your credentials for secure access to premium content and early screenings.</p>
+
+        <form id="loginForm" novalidate>
+            <div>
+                <label for="email">Email</label>
+                <div class="field">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M3 6.5v11A2.5 2.5 0 0 0 5.5 20h13a2.5 2.5 0 0 0 2.5-2.5v-11A2.5 2.5 0 0 0 18.5 4h-13A2.5 2.5 0 0 0 3 6.5z" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 7.5L12 13 3 7.5" stroke="rgba(255,255,255,0.24)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <input id="email" name="email" type="email" inputmode="email" placeholder="you@domain.com" required autocomplete="email" />
+                </div>
+            </div>
+            
+            <div>
+                <label for="password">Password</label>
+                <div class="field" style="justify-content:space-between">
+                    <input id="password" name="password" type="password" placeholder="Enter your password" minlength="8" required autocomplete="current-password" />
+                    <button type="button" class="toggle" id="togglePwd" title="Show password" aria-pressed="false">
+                        <svg id="eyeOpen" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="3" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+                        </svg>
+                        <svg id="eyeClosed" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="display:none">
+                            <path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-6 0-10-7-10-7a17 17 0 0 1 4.06-4.94" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M1 1l22 22" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="hint" id="pwHint">Minimum 8 characters.</div>
+            </div>
+
+            <div class="row" style="margin-top:6px">
+                <label class="remember"><input type="checkbox" id="remember" name="remember" /> Remember me</label>
+                <a href="#" style="color:var(--muted);font-size:13px">Forgot?</a>
+            </div>
+
+            <button class="btn" id="submitBtn" type="submit">Sign in — $10,000 Access</button>
+
+            <div class="aux">
+                <span class="hint">New here?</span>
+                <a href="#" style="font-weight:600;color:var(--accent)">Create an account</a>
+            </div>
+
+            <div class="notice" role="status" aria-live="polite" id="status" style="display:none"></div>
+        </form>
+
+        <div class="alt">By signing in you agree to our terms and privacy policy.</div>
+    </main>
+
+    <script>
+        (function(){
+            const form = document.getElementById('loginForm');
+            const email = document.getElementById('email');
+            const pwd = document.getElementById('password');
+            const toggle = document.getElementById('togglePwd');
+            const eyeOpen = document.getElementById('eyeOpen');
+            const eyeClosed = document.getElementById('eyeClosed');
+            const submitBtn = document.getElementById('submitBtn');
+            const status = document.getElementById('status');
+            cons
+            toggle.addEventListener('click', () => {
+                const showing = pwd.type === 'text';
+                pwd.type = showing ? 'password' : 'text';
+                toggle.setAttribute('aria-pressed', String(!showing));
+                eyeOpen.style.display = showing ? '' : 'none';
+                eyeClosed.style.display = showing ? 'none' : '';
+            });
+
+            function validatePasswordLength() {
+                if (pwd.value && pwd.value.length < 8) {
+                    pwd.setCustomValidity('Password must be at least 8 characters.');
+                } else {
+                    pwd.setCustomValidity('');
+                }
+            }
+
+            email.addEventListener('input', () => email.setCustomValidity(''));
+            pwd.addEventListener('input', validatePasswordLength);
+
+            // disable submit until fields valid
+            function updateSubmitState() {
+                submitBtn.disabled = !form.checkValidity();
+            }
+            form.addEventListener('input', updateSubmitState);
+            window.addEventListener('load', updateSubmitState);
+
+            // Simulated submit handler (replace with real server call)
+            form.addEventListener('submit', async function(e){
+                e.preventDefault();
+                validatePasswordLength();
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Signing in...';
+                status.style.display = 'none';
+                // Simulate network delay
+                await new Promise(r => setTimeout(r, 900));
+                // In production: POST to server with fetch() and handle response properly.
+                // For demo: show success
+                status.textContent = 'Signed in successfully. Redirecting to premium screenings…';
+                status.style.display = 'block';
+                submitBtn.textContent = 'Sign in — $10,000 Access';
+                submitBtn.disabled = false;
+                // simulated redirect
+                setTimeout(()=> {
+                    // window.location.href = '/dashboard';
+                    status.textContent = 'Welcome — premium content unlocked.';
+                }, 800);
+            });
+        })(); 
+    </script>
+</body>
+</html>

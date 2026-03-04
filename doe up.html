@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DOE Studios</title>
+  <link rel="stylesheet" href="doe css.css">
+  <script src="doe js.js">console.log("Successfully connected!");</script>
+</head> 
+<body>
+ <!-- LOADING SCREEN -->
+<div id="loader">
+  <div class="loader-ring"></div>
+  <h2>DOE Studios</h2>
+</div>
+
+<!-- BACKGROUND VIDEO -->
+<video autoplay muted loop id="bg-video">
+  <source src="https://assets.mixkit.co/videos/preview/mixkit-cinematic-drone-flight-over-mountains-23609-large.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+  <div class="logo">DOE <span>Studios</span></div>
+
+  <!-- Dark/Light Toggle -->
+  <div class="toggle-container">
+    <input type="checkbox" id="mode-toggle">
+    <label for="mode-toggle" class="toggle-label"></label>
+  </div>
+
+  <!-- Sound Button -->
+  <button id="sound-btn">🔇</button>
+
+  <ul class="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#films">Films</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="btn">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- BACKGROUND SOUNDTRACK -->
+<audio id="bg-audio" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_34a9ad7cd7.mp3">
+</audio>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <h1 class="title">Welcome to <span>DOE Studios</span></h1>
+  <p class="subtitle">Where Cinematic Dreams Come Alive</p>
+  <a href="#films" class="cta-btn">Explore Our Universe</a>
+</section>
+
+<!-- FILMS -->
+<section id="films" class="films-section">
+  <h1 class="section-title">Featured Films</h1>
+  <div class="film-grid">
+
+    <!-- FILM CARD 1 -->
+    <div class="film-card" data-trailer="https://www.youtube.com/embed/8Qn_spdM5Zg">
+      <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=600&q=60">
+      <div class="film-info">
+        <h2>Eternal Horizon</h2>
+        <p>A sci-fi epic at the edge of existence.</p>
+        <button class="trailer-btn">Watch Trailer</button>
+      </div>
+    </div>
+
+    <!-- FILM CARD 2 -->
+    <div class="film-card" data-trailer="https://www.youtube.com/embed/EXeTwQWrcwY">
+      <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=600&q=60">
+      <div class="film-info">
+        <h2>Nightfall Symphony</h2>
+        <p>A neon-noir thriller.</p>
+        <button class="trailer-btn">Watch Trailer</button>
+      </div>
+    </div>
+
+    <!-- FILM CARD 3 -->
+    <div class="film-card" data-trailer="https://www.youtube.com/embed/YoHD9XEInc0">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=60">
+      <div class="film-info">
+        <h2>Fragments of Time</h2>
+        <p>A multiverse drama.</p>
+        <button class="trailer-btn">Watch Trailer</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TRAILER PLAYER MODAL -->
+<div id="trailer-modal">
+  <div class="modal-content">
+    <span id="modal-close">&times;</span>
+    <iframe id="trailer-iframe" src="" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery">
+  <h1 class="section-title">Behind The Scenes</h1>
+
+  <div class="gallery-grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=60">
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=600&q=60">
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=600&q=60">
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <h1 class="section-title">Our Story</h1>
+  <p class="about-text">DOE Studios is a next-generation storytelling powerhouse.</p>
+
+  <div class="timeline">
+    <div class="event fade-in">2012 — Founded</div>
+    <div class="event fade-in">2016 — Breakthrough</div>
+    <div class="event fade-in">2023 — Expansion</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h1 class="section-title">Get In Touch</h1>
+
+  <form class="contact-form">
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <textarea placeholder="Your Message..." required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>© 2026 DOE Studios — All Rights Reserved.</footer>
+</body>
+</html>
